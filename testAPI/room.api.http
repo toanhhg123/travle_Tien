@@ -1,0 +1,29 @@
+GET http://localhost:8080/v1/room
+
+
+###
+POST  http://localhost:8080/v1/room
+Content-Type: application/json
+
+{
+   "desc": "rom is best kind",
+   "service": ["wifi", "remote", "tivi", "BSC"],
+   "name": "Room 1",
+   "price": 100,
+   "hotel": "64311809010f0cfbc4061837"
+}
+
+
+###
+PATCH  http://localhost:8080/v1/room/643219a24a606b6291e38291
+Content-Type: application/json
+
+{
+   "service":["wifi", "remote", "tivi", "..."]
+}
+
+
+###
+DELETE  http://localhost:8080/v1/room/643219a24a606b6291e38291
+
+

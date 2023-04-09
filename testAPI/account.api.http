@@ -1,0 +1,30 @@
+GET http://localhost:8080/v1/account?pageIndex=2&pageSize=4&search=admin
+
+###
+DELETE  http://localhost:8080/v1/account/642f825af4fcc0ad3e79bc5f
+
+###
+POST  http://localhost:8080/v1/account
+Content-Type: application/json
+
+{
+    "userName": "admin11",
+    "passwordHash": "admin",
+    "address": "192 sleven califonia america",
+    "email": "admin11@gmail.com",
+    "phone": "0989098909",
+    "role": "admin"
+}
+
+###
+PATCH  http://localhost:8080/v1/account/6430e0c2f90df1be5acaa6f7
+Content-Type: application/json
+
+{
+    "userName": "admin",
+    "passwordHash": "admin123",
+    "address": "192 sleven Cali-America",
+    "email": "admin@gmail.com",
+    "phone": "0989098909",
+    "role": "admin"
+}

@@ -1,0 +1,22 @@
+GET http://localhost:8080/v1/book/room/64321a795de95e2dc6430c5d
+
+###
+GET http://localhost:8080/v1/book/6432273c9ec1a54f1844a41e
+
+
+###
+POST  http://localhost:8080/v1/book
+Content-Type: application/json
+
+{
+   "userId":"6430ee0f35ccedabd6bdfc03",
+   "roomId": "64321a795de95e2dc6430c5d",
+   "checkIn": "2023-04-13",
+   "checkOut": "2023-04-15"
+}
+
+
+###
+DELETE  http://localhost:8080/v1/book/6432273c9ec1a54f1844a41e
+
+

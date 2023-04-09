@@ -1,0 +1,43 @@
+GET http://localhost:8080/v1/hotel
+
+
+###
+POST  http://localhost:8080/v1/hotel
+Content-Type: application/json
+
+{
+    "name": "VLux Hotel America",
+    "address": "643109690e0783ebbc3c86c8",
+    "rate": 5,
+    "desc": "hotel is beauti in Viet Nam",
+    "priceRange": ["200", "500"],
+    "images": []
+}
+
+###
+POST  http://localhost:8080/v1/hotel/comment/64311809010f0cfbc4061837
+Content-Type: application/json
+
+{
+    "fullName": "rolle",
+    "rate": 5,
+    "comment": "wow view so good"
+}
+
+
+
+###
+PATCH  http://localhost:8080/v1/hotel/643109740e0783ebbc3c86ca
+Content-Type: application/json
+
+{
+   "name": "Hà Nội"
+}
+
+
+###
+DELETE  http://localhost:8080/v1/hotel/643109740e0783ebbc3c86ca
+
+
+###
+DELETE   http://localhost:8080/v1/hotel/comment/64311809010f0cfbc4061837/64311a95e1874436154a2efa

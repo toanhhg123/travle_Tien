@@ -4,7 +4,7 @@ const { getQuery } = require("../utils/queryReq");
 const createHttpError = require("http-errors");
 
 const getAll = expressAsyncHandler(async (req, res) => {
-  const rooms = await Room.find({});
+  const rooms = await Room.find(req.body).populate("hotel");
   return res.json({
     status: "success",
     data: rooms,

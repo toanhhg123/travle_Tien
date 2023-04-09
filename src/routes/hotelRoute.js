@@ -8,17 +8,18 @@ const {
   deleteComment,
   addComent,
 } = require("../controllers/hotelController");
+const authenticateJWT = require("../middlewares/authMiddleware");
 const router = Router();
 
 router.get("/:id", findById);
 router.get("/", getAll);
 
-router.post("/comment/:id", addComent);
-router.post("/", create);
+router.post("/comment/:id", authenticateJWT(), addComent);
+router.post("/", authenticateJWT(["admin"]), create);
 
-router.patch("/:id", update);
+router.patch("/:id", authenticateJWT(["admin"]), update);
 
 router.delete("/comment/:id/:commentId", deleteComment);
-router.delete("/:id", remove);
+router.delete("/:id", authenticateJWT(["admin"]), remove);
 
 module.exports = router;

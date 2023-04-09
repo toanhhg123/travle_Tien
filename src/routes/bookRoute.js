@@ -5,13 +5,14 @@ const {
   create,
   remove,
 } = require("../controllers/bookController");
+const authenticateJWT = require("../middlewares/authMiddleware");
 const router = Router();
 
 router.get("/room/:id", getAll);
 router.get("/:id", findById);
 
-router.post("/", create);
+router.post("/", authenticateJWT(), create);
 
-router.delete("/:id", remove);
+router.delete("/:id", authenticateJWT(), remove);
 
 module.exports = router;

@@ -7,6 +7,9 @@ const addressRoute = require("./routes/addressRoute");
 const hotelRoute = require("./routes/hotelRoute");
 const roomRoute = require("./routes/roomRoute");
 const bookRoute = require("./routes/bookRoute");
+const authRoute = require("./routes/authRoute");
+const authenticateJWT = require("./middlewares/authMiddleware");
+
 const cloudinaryRoute = require("./routes/cloudinaryRoute");
 
 const {
@@ -25,11 +28,13 @@ connectDB();
 app.get("/", (req, res) => {
   throw new Error("asdasdas");
 });
-app.use("/v1/account", accountRoute);
+app.use("/v1/account", authenticateJWT(["admin"]), accountRoute);
 app.use("/v1/address", addressRoute);
 app.use("/v1/hotel", hotelRoute);
 app.use("/v1/room", roomRoute);
 app.use("/v1/book", bookRoute);
+app.use("/v1/auth", authRoute);
+
 app.use("/v1/cloudinary", cloudinaryRoute);
 
 app.use(handleErrorNotFound);

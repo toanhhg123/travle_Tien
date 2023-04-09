@@ -7,11 +7,12 @@ const {
   remove,
 } = require("../controllers/addressController");
 const router = Router();
+const authenticateJWT = require("../middlewares/authMiddleware");
 
 router.get("/:id", findById);
 router.get("/", getAll);
-router.post("/", create);
-router.patch("/:id", update);
-router.delete("/:id", remove);
+router.post("/", authenticateJWT(["admin"]), create);
+router.patch("/:id", authenticateJWT(["admin"]), update);
+router.delete("/:id", authenticateJWT(["admin"]), remove);
 
 module.exports = router;

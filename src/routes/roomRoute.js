@@ -6,14 +6,15 @@ const {
   update,
   remove,
 } = require("../controllers/roomController");
+const authenticateJWT = require("../middlewares/authMiddleware");
 const router = Router();
 
 router.get("/:id", findById);
 router.get("/", getAll);
 
-router.post("/", create);
+router.post("/", authenticateJWT(["admin"]), create);
 
-router.patch("/:id", update);
-router.delete("/:id", remove);
+router.patch("/:id", authenticateJWT(["admin"]), update);
+router.delete("/:id", authenticateJWT(["admin"]), remove);
 
 module.exports = router;
